@@ -5,12 +5,20 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Start Page</title>
+    <title>News</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<p>Hello World!</p>
-<a href="/addNew" class="btn btn-primary">Add News</a>
+<div class="container top-right links d-flex justify-content-between">
+    <a href="/addNew" class="btn btn-primary">Add News</a>
+    <p>Hello <span class="text-primary">{{ $email }}</span></p> <!-- Виводимо електронну адресу користувача -->
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+
+</div>
+
 <div class="container">
     <h2 class="text-center">News List</h2>
     <div>

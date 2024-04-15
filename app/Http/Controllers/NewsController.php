@@ -12,12 +12,6 @@ class NewsController extends Controller
         return view('addNew');
     }
 
-    public function index()
-    {
-        $news = News::all();
-        return view('start', compact('news'));
-    }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -28,7 +22,6 @@ class NewsController extends Controller
 
         News::create($validatedData);
 
-        return redirect('/');
+        return redirect('/start');
     }
 }
-//123456789101112131415161718192021222324252627282930
